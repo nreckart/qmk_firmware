@@ -29,12 +29,12 @@ enum {
   PPEQ,
   PMUN,
   PSPA,
-  ESCW,
+  ESCP,
 };
 
 qk_tap_dance_action_t tap_dance_actions[] = {
 //[ADJ]  = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_LAYER_finished, dance_LAYER_reset),  //  Double-tap to activate Adjust layer via oneshot layer
-[ESCW] = ACTION_TAP_DANCE_DOUBLE(KC_ESC, CAPS_WORD), // Esc on single-tap, toggle CAPS WORD on a double-tap
+[ESCP] = ACTION_TAP_DANCE_DOUBLE(KC_ESC, KC_CAPS), // Esc on single-tap, toggle CAPS WORD on a double-tap
 [LBCB] = ACTION_TAP_DANCE_DOUBLE(KC_LBRC, KC_LCBR),  // Left bracket on a single-tap, left brace on a double-tap
 [RBCB] = ACTION_TAP_DANCE_DOUBLE(KC_RBRC, KC_RCBR),  // Right bracket on a single-tap, right brace on a double-tap
 [EQPL] = ACTION_TAP_DANCE_DOUBLE(KC_EQL, KC_PLUS),   // Plus sign on a single-tap, equal sign on a double-tap
@@ -66,7 +66,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define CTL_Y   LCTL(KC_Y)
 #define CA_TAB  LCA(KC_TAB)
 #define HYPER   ALL_T(KC_NO)
-#define TD_ESCW TD(ESCW)
+#define TD_ESCP TD(ESCP)
 #define TD_ADJ  TD(ADJ)
 #define TD_LBCB TD(LBCB)
 #define TD_RBCB TD(RBCB)
@@ -110,7 +110,7 @@ QWERTY
   KC_ESC,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PSCR, KC_SCRL, KC_PAUS, NUMPAD,  ADJUST,
   KC_EQL,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                                                          KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
   KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                                                          KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
-  TD_ESCW, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                                                          KC_H,    KC_J,    KC_K,    KC_L,    SEMIFNC, KC_QUOT,
+  TD_ESCP, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                                                          KC_H,    KC_J,    KC_K,    KC_L,    SEMIFNC, KC_QUOT,
   SC_LSPO, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                                                          KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, SC_RSPC,
            KC_GRV,  KC_INS,  KC_LBRC, KC_RBRC,                                                                         KC_TAB,  KC_DOWN, KC_UP,   KC_RGHT,
                                                         KC_DEL,  HYPER,                     KC_RALT, KC_RCTL,
