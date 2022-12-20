@@ -53,11 +53,13 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define SEMIFNC LT(_FUNCTION, KC_SCLN)
 //#define BSPCFN  LT(_FUNCTION, KC_BSPC)
 #define SPCSHFT LSFT_T(KC_SPC)
+#define INSSHFT LSFT_T(KC_INS)
 #define ENTNUM  LT(_NUMBERS, KC_ENT)
 //#define DELNS   LT(_NUMBERS2, KC_DEL)
 #define CTLESC  CTL_T(KC_ESC)
 #define CTLBSPC CTL_T(KC_BSPC)
-#define ALTAPP  ALT_T(KC_APP)
+#define ALTRBRC ALT_T(KC_RBRC)
+#define CTL_BSP LCTL(KC_BSPC)
 #define CTL_A   LCTL(KC_A)
 #define CTL_C   LCTL(KC_C)
 #define CTL_V   LCTL(KC_V)
@@ -94,16 +96,16 @@ QWERTY
 |---------+--------+--------+--------+--------+--------|                                                     |--------+--------+--------+--------+--------+---------|
 | ESC/Caps|    A   |    S   |    D   |    F   |    G   |                                                     |    H   |    J   |    K   |    L   |    ;   |    '    |
 |---------+--------+--------+--------+--------+--------|                                                     |--------+--------+--------+--------+--------+---------|
-| SC Shift|    Z   |    X   |    C   |    V   |    B   |                                                     |    N   |    M   |    ,   |    .   |    /   | SC Shift|
+| Ins/Shft|    Z   |    X   |    C   |    V   |    B   |                                                     |    N   |    M   |    ,   |    .   |    /   | SC Shift|
 `---------+--------+--------+--------+--------+--------'                                                     `--------+--------+--------+--------+--------+---------'
-          |   Ins  |    `   |    [   |    ]   |                                                                       |  Tab   |  Down  |   Up   |  Right |
+          |   `    |   Ins  |    [   |Alt / ] |                                                                       |  Tab   |  Down  |   Up   |  Right |
           `-----------------------------------'                                                                       `-----------------------------------'
 	                                                   ,-----------------.                 ,-----------------.
 	                                                   | Delete |  Hyper |                 |  RAlt  |  RCtl  |
 	                                          ,--------+--------+--------|                 |--------+--------+--------.
-	                                          |  Bspc  |  Enter |  Left  |                 |   Up   | Enter  |  Spaxe |
-	                                          |    /   |    /   |--------|                 |--------|    /   |    /   |
-	                                          |   Fn   | Number |  Right |                 |  Down  | Number |  Shift |
+	                                          |  Bspc  |        |  Left  |                 |   Up   | Enter  |  Space |
+	                                          |    /   |   GUI  |--------|                 |--------|    /   |    /   |
+	                                          |   Fn   |        |  Right |                 |  Down  | Number |  Shift |
 	                                          `--------------------------'                 `--------------------------'
 */
 [_QWERTY] = LAYOUT_pretty(
@@ -111,8 +113,8 @@ QWERTY
   KC_EQL,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                                                          KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
   KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                                                          KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
   TD_ESCP, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                                                          KC_H,    KC_J,    KC_K,    KC_L,    SEMIFNC, KC_QUOT,
-  SC_LSPO, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                                                          KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, SC_RSPC,
-           KC_GRV,  KC_INS,  KC_LBRC, KC_RBRC,                                                                         KC_TAB,  KC_DOWN, KC_UP,   KC_RGHT,
+  INSSHFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                                                          KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, SC_RSPC,
+           KC_GRV,  KC_INS,  KC_LBRC, ALTRBRC,                                                                         KC_TAB,  KC_DOWN, KC_UP,   KC_RGHT,
                                                         KC_DEL,  HYPER,                     KC_RALT, KC_RCTL,
                                                                  KC_LEFT,                   KC_UP,
                                           CTLBSPC,   KC_LGUI,   KC_RIGHT,                   KC_DOWN,  ENTNUM,   SPCSHFT
@@ -152,7 +154,7 @@ Numbers/Symbols layer
            KC_LPRN, KC_RPRN, KC_LPRN, KC_RPRN,                                                                         _______, _______, _______, _______,
                                                         _______, _______,                   _______, _______,
                                                                  _______,                   _______,
-                                               CTLBSPC, _______, _______,                   _______, _______, _______
+                                               CTL_BSP, _______, _______,                   _______, _______, _______
 ),
 /*
 Function layer
