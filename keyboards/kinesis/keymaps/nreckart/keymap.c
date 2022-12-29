@@ -80,6 +80,8 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define TD_PPEQ TD(PPEQ)
 #define TD_PMUN TD(PMUN)
 #define TD_PSPA TD(PSPA)
+#define WS_UP   LCTL(LGUI(KC_UP))
+#define WS_DWN  LCTL(LGUI(KC_DOWN))
 #define NKROTG  MAGIC_TOGGLE_NKRO
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -153,8 +155,8 @@ Numbers/Symbols layer
   _______, KC_AT,   KC_LBRC, KC_RBRC, KC_LPRN, KC_RPRN,                                                       TD_GVTL, TD_LBCB, TD_RBCB, _______, _______, _______,
            KC_LPRN, KC_RPRN, KC_LPRN, KC_RPRN,                                                                         _______, _______, _______, _______,
                                                         _______, _______,                   _______, _______,
-                                                                 _______,                   _______,
-                                               CTL_BSP, _______, _______,                   _______, _______, _______
+                                                                  WS_UP ,                   _______,
+                                               CTL_BSP, _______, WS_DWN ,                   _______, _______, _______
 ),
 /*
 Function layer
