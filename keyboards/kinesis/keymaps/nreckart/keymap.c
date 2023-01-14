@@ -18,7 +18,7 @@ enum kinesis_keycodes {
 
 //Tap Dance Declarations
 enum {
-  LBCB = 0,
+  CPPS = 0,
   RBCB,
   EQPL,
   PLEQ,
@@ -35,7 +35,7 @@ enum {
 qk_tap_dance_action_t tap_dance_actions[] = {
 [ESCP] = ACTION_TAP_DANCE_DOUBLE(KC_ESC, CW_TOGG),   // Esc on single-tap, toggle CAPS WORD on a double-tap
 [ACBS] = ACTION_TAP_DANCE_DOUBLE(KC_LALT, LCTL(KC_BSPC)),  // Left Alt on tap, Ctrl + Backspace on double-tap
-[LBCB] = ACTION_TAP_DANCE_DOUBLE(KC_LBRC, KC_LCBR),  // Left bracket on a single-tap, left brace on a double-tap
+[CPPS] = ACTION_TAP_DANCE_DOUBLE(LCTL(KC_C), LCTL(KC_V)),  // Copy on tap, Paste on double-tap 
 [RBCB] = ACTION_TAP_DANCE_DOUBLE(KC_RBRC, KC_RCBR),  // Right bracket on a single-tap, right brace on a double-tap
 [EQPL] = ACTION_TAP_DANCE_DOUBLE(KC_EQL, KC_PLUS),   // Plus sign on a single-tap, equal sign on a double-tap
 [PLEQ] = ACTION_TAP_DANCE_DOUBLE(KC_PLUS, KC_EQL),   // Equal sign on a single-tap, plus sign on a double-tap
@@ -71,7 +71,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define HYPER   ALL_T(KC_NO)
 #define TD_ESCP TD(ESCP)
 #define TD_ACBS TD(ACBS)
-#define TD_LBCB TD(LBCB)
+#define TD_CPPS TD(CPPS)
 #define TD_RBCB TD(RBCB)
 #define TD_EQPL TD(EQPL)
 #define TD_PLEQ TD(PLEQ)
@@ -101,7 +101,7 @@ QWERTY
 |---------+--------+--------+--------+--------+--------|                                                     |--------+--------+--------+--------+--------+---------|
 | Ins/Shft|    Z   |    X   |    C   |    V   |    B   |                                                     |    N   |    M   |    ,   |    .   |    /   |   Tab   |
 `---------+--------+--------+--------+--------+--------'                                                     `--------+--------+--------+--------+--------+---------'
-          |   `    |   Ins  |    [   |  ALT   |                                                                       |  Tab   |  S Tab |   Up   | Cap WD |
+          |   `    |   Ins  | Cpy/Pst|  ALT   |                                                                       |  Tab   |  S Tab |   Up   | Cap WD |
           `-----------------------------------'                                                                       `-----------------------------------'
 	                                                   ,-----------------.                 ,-----------------.
 	                                                   | Delete |  Hyper |                 |  RAlt  |  RCtl  |
@@ -117,7 +117,7 @@ QWERTY
   KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                                                          KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
   KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                                                          KC_H,    KC_J,    KC_K,    KC_L,    SEMIFNC, KC_QUOT,
   INSSHFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                                                          KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_TAB,
-           KC_GRV,  KC_INS,  KC_LBRC, TD_ACBS,                                                                         KC_TAB,  SFT_TAB, KC_UP,   CW_TOGG,
+           KC_GRV,  KC_INS,  TD_CPPS, TD_ACBS,                                                                         KC_TAB,  SFT_TAB, KC_UP,   CW_TOGG,
                                                         KC_DEL,  HYPER,                     KC_RALT, KC_RCTL,
                                                                  KC_LEFT,                   KC_UP,
                                           CTLBSPC,   KC_LGUI,   KC_RIGHT,                   KC_DOWN,  ENTNUM,   SPCSHFT
@@ -135,7 +135,7 @@ Numbers/Symbols layer
 |---------+--------+--------+--------+--------+--------|                                                     |--------+--------+--------+--------+--------+---------|
 |  CAPS   |    1   |    2   |    3   |    4   |    5   |                                                     |    6   |    7   |    8   |    9   |    0   |         |
 |---------+--------+--------+--------+--------+--------|                                                     |--------+--------+--------+--------+--------+---------|
-|         |    @   |    [   |    ]   |    (   |    )   |                                                     |   ` ~  |   [ {  |   ] }  |        |        |         |
+|         |    @   |    [   |    ]   |    (   |    )   |                                                     |   ` ~  |        |        |        |        |         |
 `---------+--------+--------+--------+--------+--------'                                                     `--------+--------+--------+--------+--------+---------'
           |    (   |    )   |   [ {  |   ] }  |                                                                       |        |        |        |        |
           `-----------------------------------'                                                                       `-----------------------------------'
@@ -152,7 +152,7 @@ Numbers/Symbols layer
   KC_F12,  KC_F1,   KC_F2,   KC_F4,   KC_F4,   KC_F5,                                                         KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  QK_BOOT,
   _______, KC_EQL,  KC_LCBR, KC_RCBR, KC_MINS, KC_PLUS,                                                       KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_F11,
   KC_CAPS, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                                                          KC_6,    KC_7,    KC_8,    KC_9,    KC_0,   KC_F12,
-  _______, KC_AT,   KC_LBRC, KC_RBRC, KC_LPRN, KC_RPRN,                                                       TD_GVTL, TD_LBCB, TD_RBCB, _______, _______, _______,
+  _______, KC_AT,   KC_LBRC, KC_RBRC, KC_LPRN, KC_RPRN,                                                       TD_GVTL, _______, _______, _______, _______, _______,
            KC_LPRN, KC_RPRN, KC_LPRN, KC_RPRN,                                                                         _______, _______, _______, _______,
                                                         _______, _______,                   _______, _______,
                                                                   WS_UP ,                   _______,
@@ -208,7 +208,7 @@ Numpad layer
 |---------+--------+--------+--------+--------+--------|                                                     |--------+--------+--------+--------+--------+---------|
 |         |        |  KP .  | KP/KP* |  KP- _ |  KP+ = |                                                     |        |  KP 1  |  KP 2  |  KP 3  | KP Ent |         |
 `---------+--------+--------+--------+--------+--------'                                                     `--------+--------+--------+--------+--------+---------'
-          |    (   |    )   |   [ {  |   ] }  |                                                                       |        |  KP 0  |  KP .  | KP Ent |
+          |    (   |    )   |        |        |                                                                       |        |  KP 0  |  KP .  | KP Ent |
           `-----------------------------------'                                                                       `-----------------------------------'
 	                                                   ,-----------------.                 ,-----------------.
 	                                                   |        |        |                 |        |        |
@@ -224,7 +224,7 @@ Numpad layer
   _______, KC_P6,   KC_P7,   KC_P8,   KC_P9,   KC_P0,                                                         _______, KC_P7,   KC_P8,   KC_P9,   KC_PPLS, _______,
   _______, KC_P1,   KC_P2,   KC_P3,   KC_P4,   KC_P5,                                                         _______, KC_P4,   KC_P5,   KC_P6,   KC_EQL,  _______,
   _______, _______, KC_PDOT, TD_PSPA, TD_MNUN, TD_PPEQ,                                                       _______, KC_P1,   KC_P2,   KC_P3,   KC_PENT, _______,
-           KC_LPRN, KC_RPRN, TD_LBCB, TD_RBCB,                                                                         _______, KC_P0,   KC_PDOT, KC_PENT,
+           KC_LPRN, KC_RPRN, _______, _______,                                                                         _______, KC_P0,   KC_PDOT, KC_PENT,
                                                         _______, _______,                   _______, _______,
                                                                  _______,                   _______,
                                                _______, _______, _______,                   _______, _______, _______
